@@ -5,5 +5,7 @@ export type mvcConfig = {
 
 export interface ModalConfig {
     id: string;
+    clickOutsideToClose?: boolean;
     styleOverrides?: any;
+    layout: any; // TODO - make this better
 }

@@ -33,5 +33,6 @@ export default defineComponent({
     z-index: 1000;
     width: 100vw;
     height: 100vh;
+    pointer-events: none;
 }
 </style>

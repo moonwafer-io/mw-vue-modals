@@ -1,6 +1,8 @@
 <template>
-    <div class="mw-modal" v-bind:style="modalStyles">
-        <h1>{{ mwModalConfig }}</h1>
+    <div class="mw-modal" v-on:click.stop v-bind:style="modalStyles">
+        <component
+            v-bind:is="mwModalConfig.layout.name"
+            v-bind="{mwModalConfig}"></component>
     </div>
 </template>
 
@@ -45,5 +47,6 @@ export default defineComponent({
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: auto;
 }
 </style>
