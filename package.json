@@ -1,0 +1,34 @@
+{
+  "name": "modal-vue-composer",
+  "version": "1.0.0",
+  "description": "Modal library for VueJS apps",
+  "repository": "git@bitbucket.org:etchedincode/modal-vue-composer.git",
+  "main": "dist/index.js",
+  "author": "Moonwafer LLC",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.dev.js",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js"
+  },
+  "peerDependencies": {
+    "vue": "3.0.11"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "3.0.11",
+    "css-loader": "^6.5.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "vue": "3.0.11",
+    "vue-loader": "^16.8.2",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {}
+}

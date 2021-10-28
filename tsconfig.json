@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es6",
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "module": "ES2015",
+        "outDir": "./dist",
+        "declaration": true
+    },
+
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.vue",
+    ],
+    "exclude": [
+        "./node_modules",
+        "dist"
+    ]
+}
