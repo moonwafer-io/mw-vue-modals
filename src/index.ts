@@ -9,6 +9,7 @@ import ModalGroup from './components/ModalGroup.vue';
 import Modal from './components/Modal.vue';
 // Layout Components
 import NoLayout from './components/layouts/NoLayout.vue';
+import FixedBottom from './components/layouts/FixedBottom.vue';
 
 let appRef: App | undefined = undefined;
 
@@ -23,6 +24,7 @@ export default {
             app.component('mw-modal', Modal);
             // Layout Components
             app.component('mw-no-layout', NoLayout);
+            app.component('mw-fixed-bottom', FixedBottom);
 
             // Add a global listener to close certain modals when the user clicks outside of them.
             document.addEventListener('click', () => {

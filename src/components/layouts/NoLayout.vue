@@ -1,24 +1,29 @@
 <template>
     <div class="mw-no-layout">
         <component
-            v-bind:is="main.name"
-            v-bind="main.data"
+            v-bind:is="main.componentName"
+            v-bind="main.componentData"
+            v-bind:style="mainStyles"
             v-on="main.eventHandlers"></component>
     </div>
 </template>
 
 <script lang="ts">
 
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+
+import { styleCombiner } from '../../utilities';
 
 export default defineComponent({
     props: {
         mwModalConfig: Object
     },
     setup(props) {
+        let main = props.mwModalConfig!.panes.components.main;
+        let mainStyles = computed(() => styleCombiner({}, main.styleOverrides));
+
         return {
-            // Just for easier reference in the template
-            main: props.mwModalConfig!.layout.components.main
+            main, mainStyles,
         }
     },
 });

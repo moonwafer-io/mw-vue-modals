@@ -1,7 +1,7 @@
 <template>
     <div class="mw-modal" v-on:click.stop v-bind:style="modalStyles">
         <component
-            v-bind:is="mwModalConfig.layout.name"
+            v-bind:is="mwModalConfig.layout.componentName"
             v-bind="{mwModalConfig}"></component>
     </div>
 </template>
@@ -11,6 +11,7 @@
 import { defineComponent, computed } from "vue";
 
 import { useModalVueComposer } from '../index';
+import { styleCombiner } from '../utilities';
 
 export default defineComponent({
     props: {
@@ -19,19 +20,9 @@ export default defineComponent({
     setup(props) {
         let mwMVC = useModalVueComposer();
 
-        let modalStyles = computed(() => {
-            // Start with the base styling
-            let computedStyles = JSON.parse(JSON.stringify(mwMVC.getDefaultModalConfig().styleDefaults));
-
-            // Now override anything in the mwModalConfig prop
-            if (props.mwModalConfig!.styleOverrides) {
-                for (let key of Object.keys(props.mwModalConfig!.styleOverrides)) {
-                    computedStyles[key] = props.mwModalConfig!.styleOverrides[key];
-                }
-            }
-
-            return computedStyles;
-        });
+        let modalStyles = computed(() => styleCombiner(
+                mwMVC.getDefaultModalConfig().styleDefaults,
+                props.mwModalConfig!.styleOverrides));
 
         return {
             modalStyles
