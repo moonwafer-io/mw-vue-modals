@@ -19,7 +19,7 @@ export default defineComponent({
         mwModalConfig: Object
     },
     setup(props) {
-        let main = props.mwModalConfig!.panes.components.main;
+        let main = props.mwModalConfig!.layout.panes.main;
         let mainStyles = computed(() => styleCombiner({}, main.styleOverrides));
 
         return {

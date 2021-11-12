@@ -1,5 +1,5 @@
 <template>
-    <div class="mw-modal" v-on:click.stop v-bind:style="modalStyles">
+    <div class="mw-modal" v-bind:id="'mw-modal-' + mwModalConfig.id" v-bind:style="modalStyles">
         <component
             v-bind:is="mwModalConfig.layout.componentName"
             v-bind="{mwModalConfig}"></component>

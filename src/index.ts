@@ -27,8 +27,8 @@ export default {
             app.component('mw-fixed-bottom', FixedBottom);
 
             // Add a global listener to close certain modals when the user clicks outside of them.
-            document.addEventListener('click', () => {
-                app.config.globalProperties.$mwMVC.clickOutsideToCloseModals();
+            document.addEventListener('click', (event) => {
+                app.config.globalProperties.$mwMVC.clickOutsideToCloseModals(event);
             });
         }
     }
@@ -58,12 +58,14 @@ class ModalVueComposer {
     }
 
     createOrUpdateModal(config: ModalConfig) {
-        let index = this.openModals.findIndex(m => m.id === config.id);
-        if (index === -1) {
-            this.openModals.push(config);
-        } else {
-            this.openModals[index] = config;
-        }
+        setTimeout(() => {
+            let index = this.openModals.findIndex(m => m.id === config.id);
+            if (index === -1) {
+                this.openModals.push(config);
+            } else {
+                this.openModals[index] = config;
+            }
+        }, 0);
     }
 
     closeModal(id: string) {
@@ -73,11 +75,14 @@ class ModalVueComposer {
         }
     }
 
-    clickOutsideToCloseModals() {
+    clickOutsideToCloseModals(event: any) {
         // Iterating backwards to avoid removing items from the list interfering with the iteration
         for (let i = this.openModals.length-1; i >= 0; i--) {
             if (this.openModals[i].clickOutsideToClose) {
-                this.closeModal(this.openModals[i].id);
+                let modal = document.getElementById('mw-modal-' + this.openModals[i].id);
+                if (!modal?.contains(event.target)) {
+                    this.closeModal(this.openModals[i].id);
+                }
             }
         }
     }
