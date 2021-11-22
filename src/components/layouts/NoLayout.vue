@@ -4,7 +4,7 @@
             v-bind:is="main.componentName"
             v-bind="main.componentData"
             v-bind:style="mainStyles"
-            v-on="main.eventHandlers"></component>
+            v-on="main.eventHandlers || {}"></component>
     </div>
 </template>
 

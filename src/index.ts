@@ -91,6 +91,10 @@ class ModalVueComposer {
         return this.openModals;
     }
 
+    getModalById(modalId: string) {
+        return this.openModals.find(modal => modal.id === modalId);
+    }
+
     getDefaultModalConfig() {
         return this.config;
     }

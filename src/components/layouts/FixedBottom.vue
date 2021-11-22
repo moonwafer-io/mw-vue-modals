@@ -5,14 +5,14 @@
                 v-bind:is="main.componentName"
                 v-bind="main.componentData"
                 v-bind:style="mainStyles"
-                v-on="main.eventHandlers"></component>
+                v-on="main.eventHandlers || {}"></component>
         </div>
         <div class="mw-bottom">
             <component
                 v-bind:is="bottom.name"
                 v-bind="bottom.data"
                 v-bind:style="bottomStyles"
-                v-on="bottom.eventHandlers"></component>
+                v-on="bottom.eventHandlers || {}"></component>
         </div>
     </div>
 </template>
