@@ -2,7 +2,7 @@
 
 import { App, computed, Ref, ref, reactive } from 'vue';
 
-import { ModalConfig, mvcConfig } from './types';
+import { ModalConfig, VueModalsConfig } from './types';
 
 // Modal Components
 import ModalGroup from './components/ModalGroup.vue';
@@ -14,33 +14,33 @@ import FixedBottom from './components/layouts/FixedBottom.vue';
 let appRef: App | undefined = undefined;
 
 export default {
-    install: (app: App, options: mvcConfig): any => {
+    install: (app: App, options: VueModalsConfig): any => {
         if (!appRef) {
             appRef = app;
-            app.config.globalProperties.$mwMVC = new ModalVueComposer(options);
+            app.config.globalProperties.$mwModals = new VueModals(options);
 
             // Modal Components
-            app.component('mw-modal-group', ModalGroup);
-            app.component('mw-modal', Modal);
+            app.component('mw-vm-modal-group', ModalGroup);
+            app.component('mw-vm-modal', Modal);
             // Layout Components
-            app.component('mw-no-layout', NoLayout);
-            app.component('mw-fixed-bottom', FixedBottom);
+            app.component('mw-vm-no-layout', NoLayout);
+            app.component('mw-vm-fixed-bottom', FixedBottom);
 
             // Add a global listener to close certain modals when the user clicks outside of them.
             document.addEventListener('click', (event) => {
-                app.config.globalProperties.$mwMVC.clickOutsideToCloseModals(event);
+                app.config.globalProperties.$mwModals.clickOutsideToCloseModals(event);
             });
         }
     }
 }
 
-class ModalVueComposer {
+export class VueModals {
 
-    private config: mvcConfig;
+    private config: VueModalsConfig;
 
     private openModals: ModalConfig[];
 
-    constructor(config: mvcConfig) {
+    constructor(config: VueModalsConfig) {
         this.config = config;
         this.openModals = reactive([]);
 
@@ -79,7 +79,7 @@ class ModalVueComposer {
         // Iterating backwards to avoid removing items from the list interfering with the iteration
         for (let i = this.openModals.length-1; i >= 0; i--) {
             if (this.openModals[i].clickOutsideToClose) {
-                let modal = document.getElementById('mw-modal-' + this.openModals[i].id);
+                let modal = document.getElementById('mw-vm-modal-' + this.openModals[i].id);
                 if (!modal?.contains(event.target)) {
                     this.closeModal(this.openModals[i].id);
                 }
@@ -101,10 +101,10 @@ class ModalVueComposer {
 
 }
 
-export function useModalVueComposer(): ModalVueComposer {
+export function useVueModals(): VueModals {
     if (!appRef) {
-        throw "Modal Vue Composer plugin was not initialized";
+        throw "VueModals plugin was not initialized";
     } else {
-        return appRef.config.globalProperties.$mwMVC;
+        return appRef.config.globalProperties.$mwModals;
     }
 }

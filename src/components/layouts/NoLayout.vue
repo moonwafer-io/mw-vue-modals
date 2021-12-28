@@ -1,5 +1,5 @@
 <template>
-    <div class="mw-no-layout">
+    <div class="mw-vm-no-layout">
         <component
             v-bind:is="main.componentName"
             v-bind="main.componentData"
@@ -31,7 +31,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 
-.mw-no-layout {
+.mw-vm-no-layout {
     width: 100%;
     height: 100%;
 }

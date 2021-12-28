@@ -1,13 +1,13 @@
 <template>
-    <div class="mw-fixed-bottom">
-        <div class="mw-main">
+    <div class="mw-vm-fixed-bottom">
+        <div class="mw-vm-main">
             <component
                 v-bind:is="main.componentName"
                 v-bind="main.componentData"
                 v-bind:style="mainStyles"
                 v-on="main.eventHandlers || {}"></component>
         </div>
-        <div class="mw-bottom">
+        <div class="mw-vm-bottom">
             <component
                 v-bind:is="bottom.name"
                 v-bind="bottom.data"
@@ -44,14 +44,14 @@ export default defineComponent({
 
 <style scoped lang="scss">
 
-.mw-fixed-bottom {
+.mw-vm-fixed-bottom {
     width: 100%;
     height: 100%;
 
-    .mw-main {
+    .mw-vm-main {
         overflow: auto;
     }
-    .mw-bottom {
+    .mw-vm-bottom {
     }
 }
 </style>

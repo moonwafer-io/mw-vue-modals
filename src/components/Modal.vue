@@ -1,5 +1,5 @@
 <template>
-    <div class="mw-modal" v-bind:id="'mw-modal-' + mwModalConfig.id" v-bind:style="modalStyles">
+    <div class="mw-vm-modal" v-bind:id="'mw-vm-modal-' + mwModalConfig.id" v-bind:style="modalStyles">
         <component
             v-bind:is="mwModalConfig.layout.componentName"
             v-bind="{mwModalConfig}"></component>
@@ -10,7 +10,7 @@
 
 import { defineComponent, computed } from "vue";
 
-import { useModalVueComposer } from '../index';
+import { useVueModals } from '../index';
 import { styleCombiner } from '../utilities';
 
 export default defineComponent({
@@ -18,10 +18,10 @@ export default defineComponent({
         mwModalConfig: Object
     },
     setup(props) {
-        let mwMVC = useModalVueComposer();
+        let mwVueModals = useVueModals();
 
         let modalStyles = computed(() => styleCombiner(
-                mwMVC.getDefaultModalConfig().styleDefaults,
+                mwVueModals.getDefaultModalConfig().styleDefaults,
                 props.mwModalConfig!.styleOverrides));
 
         return {
@@ -33,7 +33,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 
-.mw-modal {
+.mw-vm-modal {
     position: absolute;
     top: 50%;
     left: 50%;

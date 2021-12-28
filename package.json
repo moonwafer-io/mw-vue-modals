@@ -1,8 +1,8 @@
 {
-  "name": "modal-vue-composer",
+  "name": "mw-vue-modals",
   "version": "1.0.0",
-  "description": "Modal library for VueJS apps",
-  "repository": "git@bitbucket.org:etchedincode/modal-vue-composer.git",
+  "description": "A modal library for Vue 3",
+  "repository": "git@github.com:moonwafer-io/mw-vue-modals.git",
   "main": "dist/index.js",
   "author": "Moonwafer LLC",
   "license": "MIT",

@@ -42,7 +42,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        library: 'modal-vue-composer',
+        library: 'mw-vue-modals',
         libraryTarget: 'umd',
     },
 };

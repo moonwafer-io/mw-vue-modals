@@ -1,5 +1,5 @@
 
-export type mvcConfig = {
+export type VueModalsConfig = {
     styleDefaults?: any;
 }
 

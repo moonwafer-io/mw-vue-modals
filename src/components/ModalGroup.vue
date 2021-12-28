@@ -1,10 +1,10 @@
 <template>
-    <div class="mw-modal-group">
-        <transition-group name="mw-open-close">
-            <mw-modal v-for="modal of modals"
+    <div class="mw-vm-modal-group">
+        <transition-group name="mw-vm-open-close">
+            <mw-vm-modal v-for="modal of modals"
                 v-bind:key="modal.id"
                 v-bind:mw-modal-config="modal"
-            ></mw-modal>
+            ></mw-vm-modal>
         </transition-group>
     </div>
 </template>
@@ -13,14 +13,14 @@
 
 import { defineComponent } from "vue";
 
-import { useModalVueComposer } from '../index';
+import { useVueModals } from '../index';
 
 export default defineComponent({
     props: {},
     setup() {
-        let mwMVC = useModalVueComposer();
+        let mwVueModals = useVueModals();
 
-        let modals = mwMVC.getOpenModals();
+        let modals = mwVueModals.getOpenModals();
 
         return {
             modals,
@@ -30,17 +30,17 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.mw-modal-group {
+.mw-vm-modal-group {
     position: fixed;
     z-index: 1000;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
 
-    .mw-open-close-enter-active,.mw-open-close-leave-active {
+    .mw-vm-open-close-enter-active,.mw-vm-open-close-leave-active {
         transition: transform 0.1s, opacity 0.1s;
     }
-    .mw-open-close-enter-from,.mw-open-close-leave-to {
+    .mw-vm-open-close-enter-from,.mw-vm-open-close-leave-to {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.7);
     }

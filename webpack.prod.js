@@ -7,6 +7,6 @@ module.exports = merge(common, {
     mode: 'production',
 
     output: {
-        filename: 'main.[ContentHash].js',
+        filename: 'main.[contenthash].js',
     },
 })
