@@ -29,7 +29,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .mw-vm-modal-group {
     position: fixed;
     z-index: 1000;
