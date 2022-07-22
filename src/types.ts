@@ -7,5 +7,5 @@ export interface ModalConfig {
     id: string;
     clickOutsideToClose?: boolean;
     styleOverrides?: any;
-    layout: any; // TODO - make this better
+    layout: any; // TODO - Define this type more thoroughly.
 }
