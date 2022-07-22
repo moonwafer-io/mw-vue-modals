@@ -10,7 +10,7 @@
         <div class="mw-vm-bottom">
             <component
                 v-bind:is="bottom.name"
-                v-bind="bottom.data"
+                v-bind="bottom.componentData"
                 v-bind:style="bottomStyles"
                 v-on="bottom.eventHandlers || {}"></component>
         </div>
@@ -42,7 +42,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 .mw-vm-fixed-bottom {
     width: 100%;
