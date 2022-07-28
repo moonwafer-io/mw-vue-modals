@@ -4,8 +4,12 @@
   "description": "A modal library for Vue 3",
   "repository": "git@github.com:moonwafer-io/mw-vue-modals.git",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Moonwafer LLC",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
