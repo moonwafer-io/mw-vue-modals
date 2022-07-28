@@ -8,7 +8,11 @@ This is a Vue 3 library for showing modals to the user. There are a few built-in
 Download from NPM:
 
 ```bash
-# TODO - publish to NPM
+# Yarn
+yarn install mw-vue-modals
+
+# NPM
+npm install mw-vue-modals
 ```
 
 Add to your Vue instance:

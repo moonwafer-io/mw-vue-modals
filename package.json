@@ -6,11 +6,11 @@
   "main": "dist/index.js",
   "author": "Moonwafer LLC",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
-    "build-prod": "webpack --config webpack.prod.js"
+    "build-prod": "webpack --config webpack.prod.js",
+    "prepublish": "webpack --config webpack.prod.js"
   },
   "peerDependencies": {
     "vue": "3.0.11"
