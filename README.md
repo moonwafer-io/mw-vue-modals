@@ -9,7 +9,7 @@ Download from NPM:
 
 ```bash
 # Yarn
-yarn install mw-vue-modals
+yarn add mw-vue-modals
 
 # NPM
 npm install mw-vue-modals
