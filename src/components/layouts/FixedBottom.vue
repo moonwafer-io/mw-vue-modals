@@ -9,7 +9,7 @@
         </div>
         <div class="mw-vm-bottom">
             <component
-                v-bind:is="bottom.name"
+                v-bind:is="bottom.componentName"
                 v-bind="bottom.componentData"
                 v-bind:style="bottomStyles"
                 v-on="bottom.eventHandlers || {}"></component>

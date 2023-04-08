@@ -3,23 +3,19 @@
 const path = require('path');
 
 const { VueLoaderPlugin } = require('vue-loader');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'development',
-    devtool: 'inline-source-map',
     target: 'web',
 
     entry: './src/index.ts',
 
-    // TODO-ben : what's this?
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.vue', '.scss'],
     },
 
-    externals: {
-        // Don't package our vue library with the output.
-        vue: 'vue'
-    },
+    externals: [nodeExternals()],
 
     module: {
         rules: [
